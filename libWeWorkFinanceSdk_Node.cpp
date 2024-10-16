@@ -100,6 +100,11 @@ WeWorkFinanceSDK::WeWorkFinanceSDK(const Napi::CallbackInfo& info) : Napi::Objec
     freemediadata_fn = (FreeMediaData_t*)dlsym(so_handle, "FreeMediaData");
     decryptdata_fn = (DecryptData_t*)dlsym(so_handle, "DecryptData");
 
+    if (!newsdk_fn || !init_fn || !destroysdk_fn || !getchatdata_fn || !newslice_fn || !freeslice_fn || !getmediadata_fn || !newmediadata_fn || !freemediadata_fn || !decryptdata_fn) {
+        Napi::Error::New(env, "加载函数指针失败").ThrowAsJavaScriptException();
+        return;
+    }
+
     sdk = newsdk_fn();
 
     int ret = init_fn(sdk, corpid.c_str(), secret.c_str());

@@ -12,11 +12,6 @@
             ],
             "cflags": ["-fexceptions"],
             "cflags_cc": ["-fexceptions"],
-            "link_settings": {
-                "libraries": [
-                    "-ldl"
-                ]
-            }
         }
     ]
 }

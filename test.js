@@ -115,6 +115,6 @@ function clearDir(folderPath) {
   });
 }
 
-// (async function worker() {
-//   await work();
-// })();
+(async function worker() {
+  await work();
+})();

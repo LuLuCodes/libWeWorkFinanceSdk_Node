@@ -105,7 +105,10 @@ WeWorkFinanceSDK::WeWorkFinanceSDK(const Napi::CallbackInfo& info) : Napi::Objec
     int ret = init_fn(sdk, corpid.c_str(), secret.c_str());
     if (ret != 0) {
         destroysdk_fn(sdk);
-        Napi::Error::New(env, "初始化SDK失败").ThrowAsJavaScriptException();
+        const char* error = dlerror();
+        std::string errorMsg = "初始化SDK失败: ";
+        errorMsg += (error ? error : "未知错误");
+        Napi::Error::New(env, errorMsg).ThrowAsJavaScriptException();
     }
 }
 

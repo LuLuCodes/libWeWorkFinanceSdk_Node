@@ -2,7 +2,7 @@
  * @Author: leyi leyi@myun.info
  * @Date: 2024-10-16 13:01:07
  * @LastEditors: leyi leyi@myun.info
- * @LastEditTime: 2024-10-16 13:01:30
+ * @LastEditTime: 2024-10-16 14:01:05
  * @FilePath: /libWeWorkFinanceSdk_Node/README.md
  * @Description:
  *
@@ -11,7 +11,7 @@
 
 # 企业微信会话内容存档 node.js 版
 
-- 工具 安装 node-gyp : npm install -g node-gyp
+- 工具 安装 node-gyp : npm install -g node-gyp@9
 
 - 编译: node-gyp configure build
 

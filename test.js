@@ -1,8 +1,12 @@
 const { WeWorkFinanceSDK } = require('./build/Release/WeWorkFinanceSDK');
 
 try {
-  const sdk = new WeWorkFinanceSDK('your_corpid', 'your_secret');
+  const sdk = new WeWorkFinanceSDK(
+    'wwdf65802ca25ec195',
+    '-Ta6WMWxBhfGolWnnlO15nQckj3DRKAowUOdX2fwvzE'
+  );
 
+  console.log(11111);
   // 获取聊天数据
   const chatData = sdk.getChatData(0, 100, '', '', 5000);
   console.log('Chat Data:', chatData);

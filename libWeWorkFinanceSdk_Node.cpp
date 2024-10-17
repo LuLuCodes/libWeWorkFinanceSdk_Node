@@ -107,7 +107,7 @@ WeWorkFinanceSDK::WeWorkFinanceSDK(const Napi::CallbackInfo& info) : Napi::Objec
 
     sdk = newsdk_fn();
 
-    int ret = init_fn(sdk, corpid.c_str(), secret.c_str());
+    int ret = init_fn(sdk, "wwdf65802ca25ec195", "-Ta6WMWxBhfGolWnnlO15nQckj3DRKAowUOdX2fwvzE");
     if (ret != 0) {
         destroysdk_fn(sdk);
         Napi::Error::New(env, "初始化SDK失败").ThrowAsJavaScriptException();
@@ -125,11 +125,11 @@ WeWorkFinanceSDK::~WeWorkFinanceSDK() {
 
 Napi::Value WeWorkFinanceSDK::GetChatData(const Napi::CallbackInfo& info) {
     Napi::Env env = info.Env();
-
     if (info.Length() < 5) {
         Napi::TypeError::New(env, "错误的参数数量").ThrowAsJavaScriptException();
         return env.Null();
     }
+    
 
     uint64_t seq = info[0].As<Napi::Number>().Uint32Value();
     uint64_t limit = info[1].As<Napi::Number>().Uint32Value();
@@ -137,7 +137,9 @@ Napi::Value WeWorkFinanceSDK::GetChatData(const Napi::CallbackInfo& info) {
     std::string passwd = info[3].As<Napi::String>().Utf8Value();
     uint64_t timeout = info[4].As<Napi::Number>().Uint32Value();
 
+
     Slice_t* chatDatas = newslice_fn();
+
     int ret = getchatdata_fn(sdk, seq, limit, proxy.c_str(), passwd.c_str(), timeout, chatDatas);
 
     if (ret != 0) {

@@ -1,25 +1,25 @@
 // All Rights Reserved.
-// *File ï¿½ï¿½ WeWorkFinanceSdk_C.h
-// @Briefï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ï¿½Ï¢sdkÍ·ï¿½Ä¼ï¿½
+// *File £º WeWorkFinanceSdk_C.h
+// @Brief£ºÀ­È¡ÆóÒµÁÄÌì¼ÇÂ¼ÓëÃ½ÌåÏûÏ¢sdkÍ·ÎÄ¼ş
 
 #pragma once
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½
-//10000	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-//10001	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-//10002	ï¿½ï¿½ï¿½İ½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
-//10003	ÏµÍ³Ê§ï¿½ï¿½
-//10004	ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
-//10005	fileidï¿½ï¿½ï¿½ï¿½
-//10006	ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
-//10007 ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½Ü°æ±¾ï¿½ï¿½Ë½Ô¿ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Â´ï¿½ï¿½ï¿½Ë½Ô¿ï¿½ï¿½
-//10008 ï¿½ï¿½ï¿½ï¿½encrypt_keyï¿½ï¿½ï¿½ï¿½
-//10009 ipï¿½Ç·ï¿½
-//10010 ï¿½ï¿½ï¿½İ¹ï¿½ï¿½ï¿½
-//10011	Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½
+//·µ»ØÂë	´íÎóËµÃ÷
+//10000	²ÎÊı´íÎó£¬ÇëÇó²ÎÊı´íÎó
+//10001	ÍøÂç´íÎó£¬ÍøÂçÇëÇó´íÎó
+//10002	Êı¾İ½âÎöÊ§°Ü
+//10003	ÏµÍ³Ê§°Ü
+//10004	ÃÜÔ¿´íÎóµ¼ÖÂ¼ÓÃÜÊ§°Ü
+//10005	fileid´íÎó
+//10006	½âÃÜÊ§°Ü
+//10007 ÕÒ²»µ½ÏûÏ¢¼ÓÃÜ°æ±¾µÄË½Ô¿£¬ĞèÒªÖØĞÂ´«ÈëË½Ô¿¶Ô
+//10008 ½âÎöencrypt_key³ö´í
+//10009 ip·Ç·¨
+//10010 Êı¾İ¹ıÆÚ
+//10011	Ö¤Êé´íÎó
 
 typedef struct WeWorkFinanceSdk_t WeWorkFinanceSdk_t;
 
-// ï¿½ï¿½ï¿½ï¿½
+// Êı¾İ
 typedef struct Slice_t
 {
 	char *buf;
@@ -43,99 +43,99 @@ extern "C"
 	WeWorkFinanceSdk_t *NewSdk();
 
 	/**
-	 * ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	 * ReturnÖµ=0ï¿½ï¿½Ê¾ï¿½ï¿½APIï¿½ï¿½ï¿½Ã³É¹ï¿½
+	 * ³õÊ¼»¯º¯Êı
+	 * ReturnÖµ=0±íÊ¾¸ÃAPIµ÷ÓÃ³É¹¦
 	 * 
-	 * @param [in]  sdk			NewSdkï¿½ï¿½ï¿½Øµï¿½sdkÖ¸ï¿½ï¿½
-	 * @param [in]  corpid      ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½Òµidï¿½ï¿½ï¿½ï¿½ï¿½ç£ºwwd08c8exxxx5ab44dï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÒµÎ¢ï¿½Å¹ï¿½ï¿½ï¿½ï¿½ï¿½--ï¿½Òµï¿½ï¿½ï¿½Òµ--ï¿½ï¿½Òµï¿½ï¿½Ï¢ï¿½é¿´
-	 * @param [in]  secret		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ´æµµï¿½ï¿½Secretï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÒµÎ¢ï¿½Å¹ï¿½ï¿½ï¿½ï¿½ï¿½--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ´æµµï¿½é¿´
+	 * @param [in]  sdk			NewSdk·µ»ØµÄsdkÖ¸Õë
+	 * @param [in]  corpid      µ÷ÓÃÆóÒµµÄÆóÒµid£¬ÀıÈç£ºwwd08c8exxxx5ab44d£¬¿ÉÒÔÔÚÆóÒµÎ¢ĞÅ¹ÜÀí¶Ë--ÎÒµÄÆóÒµ--ÆóÒµĞÅÏ¢²é¿´
+	 * @param [in]  secret		ÁÄÌìÄÚÈİ´æµµµÄSecret£¬¿ÉÒÔÔÚÆóÒµÎ¢ĞÅ¹ÜÀí¶Ë--¹ÜÀí¹¤¾ß--ÁÄÌìÄÚÈİ´æµµ²é¿´
 	 *						
 	 *
-	 * @return ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½É¹ï¿½
-	 *      0   - ï¿½É¹ï¿½
-	 *      !=0 - Ê§ï¿½ï¿½
+	 * @return ·µ»ØÊÇ·ñ³õÊ¼»¯³É¹¦
+	 *      0   - ³É¹¦
+	 *      !=0 - Ê§°Ü
 	 */
 	int Init(WeWorkFinanceSdk_t *sdk, const char *corpid, const char *secret);
 
 	/**
-	 * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
-	 * ReturnÖµ=0ï¿½ï¿½Ê¾ï¿½ï¿½APIï¿½ï¿½ï¿½Ã³É¹ï¿½
+	 * À­È¡ÁÄÌì¼ÇÂ¼º¯Êı
+	 * ReturnÖµ=0±íÊ¾¸ÃAPIµ÷ÓÃ³É¹¦
 	 * 
 	 *
-	 * @param [in]  sdk				NewSdkï¿½ï¿½ï¿½Øµï¿½sdkÖ¸ï¿½ï¿½
-	 * @param [in]  seq				ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½seqï¿½ï¿½Ê¼ï¿½ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Øµï¿½ï¿½ï¿½Ï¢ï¿½ï¿½seq+1ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Ø£ï¿½seqÎªÖ®Ç°ï¿½Ó¿Ú·ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½seqÖµï¿½ï¿½ï¿½×´ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½seq:0
-	 * @param [in]  limit			Ò»ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ1000ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1000ï¿½ï¿½ï¿½á·µï¿½Ø´ï¿½ï¿½ï¿½
-	 * @param [in]  proxy			Ê¹ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½ç£ºsocks5://10.0.0.1:8081 ï¿½ï¿½ï¿½ï¿½ http://10.0.0.1:8081
-	 * @param [in]  passwd			ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ë¡£ï¿½ï¿½ user_name:passwd_123
-	 * @param [in]  timeout			ï¿½ï¿½Ê±Ê±ï¿½ä£¬ï¿½ï¿½Î»ï¿½ï¿½
-	 * @param [out] chatDatas		ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½İ£ï¿½sliceï¿½á¹¹ï¿½ï¿½.ï¿½ï¿½ï¿½İ°ï¿½ï¿½ï¿½errcode/errmsgï¿½ï¿½ï¿½Ô¼ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½İ¡ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½
+	 * @param [in]  sdk				NewSdk·µ»ØµÄsdkÖ¸Õë
+	 * @param [in]  seq				´ÓÖ¸¶¨µÄseq¿ªÊ¼À­È¡ÏûÏ¢£¬×¢ÒâµÄÊÇ·µ»ØµÄÏûÏ¢´Óseq+1¿ªÊ¼·µ»Ø£¬seqÎªÖ®Ç°½Ó¿Ú·µ»ØµÄ×î´óseqÖµ¡£Ê×´ÎÊ¹ÓÃÇëÊ¹ÓÃseq:0
+	 * @param [in]  limit			Ò»´ÎÀ­È¡µÄÏûÏ¢ÌõÊı£¬×î´óÖµ1000Ìõ£¬³¬¹ı1000Ìõ»á·µ»Ø´íÎó
+	 * @param [in]  proxy			Ê¹ÓÃ´úÀíµÄÇëÇó£¬ĞèÒª´«Èë´úÀíµÄÁ´½Ó¡£Èç£ºsocks5://10.0.0.1:8081 »òÕß http://10.0.0.1:8081
+	 * @param [in]  passwd			´úÀíÕËºÅÃÜÂë£¬ĞèÒª´«Èë´úÀíµÄÕËºÅÃÜÂë¡£Èç user_name:passwd_123
+	 * @param [in]  timeout			³¬Ê±Ê±¼ä£¬µ¥Î»Ãë
+	 * @param [out] chatDatas		·µ»Ø±¾´ÎÀ­È¡ÏûÏ¢µÄÊı¾İ£¬slice½á¹¹Ìå.ÄÚÈİ°üÀ¨errcode/errmsg£¬ÒÔ¼°Ã¿ÌõÏûÏ¢ÄÚÈİ¡£Ê¾ÀıÈçÏÂ£º
 
 	 {"errcode":0,"errmsg":"ok","chatdata":[{"seq":196,"msgid":"CAQQ2fbb4QUY0On2rYSAgAMgip/yzgs=","publickey_ver":3,"encrypt_random_key":"ftJ+uz3n/z1DsxlkwxNgE+mL38H42/KCvN8T60gbbtPD+Rta1hKTuQPzUzO6Hzne97MgKs7FfdDxDck/v8cDT6gUVjA2tZ/M7euSD0L66opJ/IUeBtpAtvgVSD5qhlaQjvfKJc/zPMGNK2xCLFYqwmQBZXbNT7uA69Fflm512nZKW/piK2RKdYJhRyvQnA1ISxK097sp9WlEgDg250fM5tgwMjujdzr7ehK6gtVBUFldNSJS7ndtIf6aSBfaLktZgwHZ57ONewWq8GJe7WwQf1hwcDbCh7YMG8nsweEwhDfUz+u8rz9an+0lgrYMZFRHnmzjgmLwrR7B/32Qxqd79A==","encrypt_chat_msg":"898WSfGMnIeytTsea7Rc0WsOocs0bIAerF6de0v2cFwqo9uOxrW9wYe5rCjCHHH5bDrNvLxBE/xOoFfcwOTYX0HQxTJaH0ES9OHDZ61p8gcbfGdJKnq2UU4tAEgGb8H+Q9n8syRXIjaI3KuVCqGIi4QGHFmxWenPFfjF/vRuPd0EpzUNwmqfUxLBWLpGhv+dLnqiEOBW41Zdc0OO0St6E+JeIeHlRZAR+E13Isv9eS09xNbF0qQXWIyNUi+ucLr5VuZnPGXBrSfvwX8f0QebTwpy1tT2zvQiMM2MBugKH6NuMzzuvEsXeD+6+3VRqL"}]}
 
 	 *
-	 * @return ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ã³É¹ï¿½
-	 *      0   - ï¿½É¹ï¿½
-	 *      !=0 - Ê§ï¿½ï¿½	
+	 * @return ·µ»ØÊÇ·ñµ÷ÓÃ³É¹¦
+	 *      0   - ³É¹¦
+	 *      !=0 - Ê§°Ü	
 	 */
 	int GetChatData(WeWorkFinanceSdk_t *sdk, unsigned long long seq, unsigned int limit, const char *proxy, const char *passwd, int timeout, Slice_t *chatDatas);
 
 	/**
-     * @brief ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.ï¿½ï¿½ÒµÎ¢ï¿½ï¿½ï¿½ï¿½ï¿½Ğ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-     * @param [in]  encrypt_key, getchatdataï¿½ï¿½ï¿½Øµï¿½encrypt_random_key,Ê¹ï¿½ï¿½ï¿½ï¿½Òµï¿½Ô³Ö¶ï¿½Ó¦ï¿½æ±¾ï¿½ï¿½Ô¿RSAï¿½ï¿½ï¿½Üºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-     * @param [in]  encrypt_msg, getchatdataï¿½ï¿½ï¿½Øµï¿½encrypt_chat_msg
-     * @param [out] msg, ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
-	 * @return ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ã³É¹ï¿½
-	 *      0   - ï¿½É¹ï¿½
-	 *      !=0 - Ê§ï¿½ï¿½
+     * @brief ½âÎöÃÜÎÄ.ÆóÒµÎ¢ĞÅ×ÔÓĞ½âÃÜÄÚÈİ
+     * @param [in]  encrypt_key, getchatdata·µ»ØµÄencrypt_random_key,Ê¹ÓÃÆóÒµ×Ô³Ö¶ÔÓ¦°æ±¾ÃØÔ¿RSA½âÃÜºóµÄÄÚÈİ
+     * @param [in]  encrypt_msg, getchatdata·µ»ØµÄencrypt_chat_msg
+     * @param [out] msg, ½âÃÜµÄÏûÏ¢Ã÷ÎÄ
+	 * @return ·µ»ØÊÇ·ñµ÷ÓÃ³É¹¦
+	 *      0   - ³É¹¦
+	 *      !=0 - Ê§°Ü
      */
 	int DecryptData(const char *encrypt_key, const char *encrypt_msg, Slice_t *msg);
 
 	/**
-	 * ï¿½ï¿½È¡Ã½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
-	 * ReturnÖµ=0ï¿½ï¿½Ê¾ï¿½ï¿½APIï¿½ï¿½ï¿½Ã³É¹ï¿½
+	 * À­È¡Ã½ÌåÏûÏ¢º¯Êı
+	 * ReturnÖµ=0±íÊ¾¸ÃAPIµ÷ÓÃ³É¹¦
 	 * 
 	 *
-	 * @param [in]  sdk				NewSdkï¿½ï¿½ï¿½Øµï¿½sdkÖ¸ï¿½ï¿½
-	 * @param [in]  sdkFileid		ï¿½ï¿½GetChatDataï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ğ£ï¿½Ã½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sdkfileid
-	 * @param [in]  proxy			Ê¹ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½ç£ºsocks5://10.0.0.1:8081 ï¿½ï¿½ï¿½ï¿½ http://10.0.0.1:8081
-	 * @param [in]  passwd			ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ë¡£ï¿½ï¿½ user_name:passwd_123
-	 * @param [in]  indexbuf		Ã½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Æ¬ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½×´Î²ï¿½ï¿½ï¿½Òªï¿½ï¿½Ğ´ï¿½ï¿½Ä¬ï¿½ï¿½ï¿½ï¿½È¡512kï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½Îµï¿½ï¿½ï¿½Ö»ï¿½ï¿½Òªï¿½ï¿½ï¿½Ï´Îµï¿½ï¿½Ã·ï¿½ï¿½Øµï¿½outindexbufï¿½ï¿½ï¿½ë¼´ï¿½É¡ï¿½
-	 * @param [in]  timeout			ï¿½ï¿½Ê±Ê±ï¿½ä£¬ï¿½ï¿½Î»ï¿½ï¿½
-	 * @param [out] media_data		ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.MediaDataï¿½á¹¹ï¿½ï¿½.ï¿½ï¿½ï¿½İ°ï¿½ï¿½ï¿½data(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)/outindexbuf(ï¿½Â´ï¿½ï¿½ï¿½ï¿½ï¿½)/is_finish(ï¿½ï¿½È¡ï¿½ï¿½É±ï¿½ï¿½)
+	 * @param [in]  sdk				NewSdk·µ»ØµÄsdkÖ¸Õë
+	 * @param [in]  sdkFileid		´ÓGetChatData·µ»ØµÄÁÄÌìÏûÏ¢ÖĞ£¬Ã½ÌåÏûÏ¢°üÀ¨µÄsdkfileid
+	 * @param [in]  proxy			Ê¹ÓÃ´úÀíµÄÇëÇó£¬ĞèÒª´«Èë´úÀíµÄÁ´½Ó¡£Èç£ºsocks5://10.0.0.1:8081 »òÕß http://10.0.0.1:8081
+	 * @param [in]  passwd			´úÀíÕËºÅÃÜÂë£¬ĞèÒª´«Èë´úÀíµÄÕËºÅÃÜÂë¡£Èç user_name:passwd_123
+	 * @param [in]  indexbuf		Ã½ÌåÏûÏ¢·ÖÆ¬À­È¡£¬ĞèÒªÌîÈëÃ¿´ÎÀ­È¡µÄË÷ÒıĞÅÏ¢¡£Ê×´Î²»ĞèÒªÌîĞ´£¬Ä¬ÈÏÀ­È¡512k£¬ºóĞøÃ¿´Îµ÷ÓÃÖ»ĞèÒª½«ÉÏ´Îµ÷ÓÃ·µ»ØµÄoutindexbufÌîÈë¼´¿É¡£
+	 * @param [in]  timeout			³¬Ê±Ê±¼ä£¬µ¥Î»Ãë
+	 * @param [out] media_data		·µ»Ø±¾´ÎÀ­È¡µÄÃ½ÌåÊı¾İ.MediaData½á¹¹Ìå.ÄÚÈİ°üÀ¨data(Êı¾İÄÚÈİ)/outindexbuf(ÏÂ´ÎË÷Òı)/is_finish(À­È¡Íê³É±ê¼Ç)
 	 
 	 *
-	 * @return ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ã³É¹ï¿½
-	 *      0   - ï¿½É¹ï¿½
-	 *      !=0 - Ê§ï¿½ï¿½
+	 * @return ·µ»ØÊÇ·ñµ÷ÓÃ³É¹¦
+	 *      0   - ³É¹¦
+	 *      !=0 - Ê§°Ü
 	 */
 	int GetMediaData(WeWorkFinanceSdk_t *sdk, const char *indexbuf,
 					 const char *sdkFileid, const char *proxy, const char *passwd, int timeout, MediaData_t *media_data);
 
 	/**
-     * @brief ï¿½Í·ï¿½sdkï¿½ï¿½ï¿½ï¿½NewSdkï¿½É¶ï¿½Ê¹ï¿½ï¿½
+     * @brief ÊÍ·Åsdk£¬ºÍNewSdk³É¶ÔÊ¹ÓÃ
      * @return 
      */
 	void DestroySdk(WeWorkFinanceSdk_t *sdk);
 
-	//--------------ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½pythonï¿½Èµï¿½ï¿½ï¿½cï¿½Ó¿Ú£ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½--------------
+	//--------------ÏÂÃæ½Ó¿ÚÎªÁËÆäËûÓïÑÔÀıÈçpythonµÈµ÷ÓÃc½Ó¿Ú£¬×ÃÇéÊ¹ÓÃ--------------
 	Slice_t *NewSlice();
 
 	/**
-     * @brief ï¿½Í·ï¿½sliceï¿½ï¿½ï¿½ï¿½NewSliceï¿½É¶ï¿½Ê¹ï¿½ï¿½
+     * @brief ÊÍ·Åslice£¬ºÍNewSlice³É¶ÔÊ¹ÓÃ
      * @return 
      */
 	void FreeSlice(Slice_t *slice);
 
 	/**
-     * @brief Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á¹©ï¿½ï¿½È¡ï¿½Ó¿ï¿½
-     * @return ï¿½ï¿½ï¿½ï¿½bufÖ¸ï¿½ï¿½
-     *     !=NULL - ï¿½É¹ï¿½
-     *     NULL   - Ê§ï¿½ï¿½
+     * @brief ÎªÆäËûÓïÑÔÌá¹©¶ÁÈ¡½Ó¿Ú
+     * @return ·µ»ØbufÖ¸Õë
+     *     !=NULL - ³É¹¦
+     *     NULL   - Ê§°Ü
      */
 	char *GetContentFromSlice(Slice_t *slice);
 	int GetSliceLen(Slice_t *slice);
 
-	// Ã½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½
+	// Ã½Ìå¼ÇÂ¼Ïà¹Ø¹¤¾ß
 
 	MediaData_t *NewMediaData();
 

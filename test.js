@@ -1,23 +1,49 @@
-const { WeWorkFinanceSDK } = require('./build/Release/WeWorkFinanceSDK');
+const { execFile } = require('child_process');
+const util = require('util');
 
-try {
-  const sdk = new WeWorkFinanceSDK(
-    'wwdf65802ca25ec195',
-    '-Ta6WMWxBhfGolWnnlO15nQckj3DRKAowUOdX2fwvzE'
-  );
+const execFilePromise = util.promisify(execFile);
 
-  console.log(11111);
-  // 获取聊天数据
-  const chatData = sdk.getChatData(0, 100, '', '', 5000);
-  console.log('Chat Data:', chatData);
+async function runWeWorkFinanceSdk(corpid, secret, command, ...args) {
+  try {
+    const { stdout, stderr } = await execFilePromise('./WeWorkFinanceSdk', [
+      corpid,
+      secret,
+      command,
+      ...args,
+    ]);
 
-  // // 获取媒体数据
-  // sdk.getMediaData('media_sdkfileid', '', '', 5000, 'saved_media_file.jpg');
-  // console.log('Media file saved');
+    console.log('输出:', stdout);
 
-  // // 解密数据
-  // const decryptedData = sdk.decryptData('encrypt_key', 'encrypt_msg');
-  // console.log('Decrypted Data:', decryptedData);
-} catch (error) {
-  console.error('Error:', error.message);
+    if (stderr) {
+      console.error('错误:', stderr);
+    }
+
+    // 解析输出以获取结果
+    const resultMatch = stdout.match(/结果: (.+)/);
+    if (resultMatch) {
+      return resultMatch[1];
+    } else {
+      return '未找到结果';
+    }
+  } catch (error) {
+    console.error('执行错误:', error);
+    return '执行出错';
+  }
 }
+
+// 使用示例
+async function main() {
+  const result = await runWeWorkFinanceSdk(
+    'wwdf65802ca25ec195',
+    '-Ta6WMWxBhfGolWnnlO15nQckj3DRKAowUOdX2fwvzE',
+    'chatmsg',
+    0,
+    100,
+    '',
+    '',
+    5000
+  );
+  console.log('执行结果:', result);
+}
+
+main();

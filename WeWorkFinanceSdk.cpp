@@ -79,35 +79,27 @@ int main(int argc, char* argv[])
         NewMediaData_t* newmediadata_fn = (NewMediaData_t*)dlsym(so_handle, "NewMediaData");
         FreeMediaData_t* freemediadata_fn = (FreeMediaData_t*)dlsym(so_handle, "FreeMediaData");
 
+        std::string allMediaData;  // 用于存储所有媒体数据
+
         while (isfinish == 0) {
-            // printf("index:%s\n", index.c_str());
             MediaData_t* mediaData = newmediadata_fn();
             ret = getmediadata_fn(sdk, index.c_str(), argv[4], argv[5], argv[6], timeout, mediaData);
             if (ret != 0) {
                 freemediadata_fn(mediaData);
-                fprintf(stderr, "chatmsg err ret:%d\n", ret);
-                return -1;
-            }
-            // printf("content size:%d isfin:%d outindex:%s\n", mediaData->data_len, mediaData->is_finish, mediaData->outindexbuf);
-
-
-            char file[200];
-            snprintf(file, sizeof(file), "%s", argv[8]);
-            FILE* fp = fopen(file, "ab+");
-            printf("filename:%s \n", file);
-            if (NULL == fp) {
-                freemediadata_fn(mediaData);
-                printf("open file err\n");
+                fprintf(stderr, "获取媒体数据错误 ret:%d\n", ret);
                 return -1;
             }
 
-            fwrite(mediaData->data, mediaData->data_len, 1, fp);
-            fclose(fp);
+            // 将当前块的数据追加到 allMediaData
+            allMediaData.append(mediaData->data, mediaData->data_len);
 
             index.assign(string(mediaData->outindexbuf));
             isfinish = mediaData->is_finish;
             freemediadata_fn(mediaData);
         }
+
+        // 将所有媒体数据输出到标准输出
+        std::cout << allMediaData;
     } 
     else if (std::string(argv[3]) == "decryptdata") {
         NewSlice_t* newslice_fn = (NewSlice_t*)dlsym(so_handle, "NewSlice");

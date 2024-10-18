@@ -117,7 +117,7 @@ int main(int argc, char* argv[])
         // decryptdata api
         DecryptData_t* decryptdata_fn = (DecryptData_t*)dlsym(so_handle, "DecryptData");
         ret = decryptdata_fn(argv[4], argv[5], Msgs);
-        printf("结果 :%s\n", Msgs->buf);
+        printf("结果: %s\n", Msgs->buf);
 
         freeslice_fn(Msgs);
     }

@@ -99,7 +99,8 @@ int main(int argc, char* argv[])
         }
 
         // 将所有媒体数据输出到标准输出
-        std::cout << allMediaData;
+        std::cout.write(allMediaData.data(), allMediaData.size());
+        std::cout.flush();
     } 
     else if (std::string(argv[3]) == "decryptdata") {
         NewSlice_t* newslice_fn = (NewSlice_t*)dlsym(so_handle, "NewSlice");

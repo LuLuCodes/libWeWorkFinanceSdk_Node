@@ -1,4 +1,5 @@
 const crypto = require('crypto');
+const NodeRSA = require('node-rsa');
 
 /**
  * RSA解密函数
@@ -8,17 +9,14 @@ const crypto = require('crypto');
  */
 function rsaDecrypt(encryptedText, privateKey) {
   try {
-    // 创建解密对象
-    const decrypter = crypto.privateDecrypt(
-      {
-        key: privateKey,
-        padding: crypto.constants.RSA_PKCS1_PADDING,
-      },
-      Buffer.from(encryptedText, 'base64')
-    );
+    const rsa = new NodeRSA(privateKey);
+    rsa.setOptions({
+      encryptionScheme: 'pkcs1',
+      environment: 'browser',
+    });
 
     // 返回解密后的文本
-    return decrypter.toString('utf8');
+    return rsa.decrypt(encryptedText).toString('utf8');
   } catch (error) {
     console.error('RSA解密失败:', error.message);
     return null;

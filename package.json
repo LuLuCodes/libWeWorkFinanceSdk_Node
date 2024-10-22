@@ -1,0 +1,14 @@
+{
+  "name": "libweworkfinancesdk_node",
+  "version": "1.0.0",
+  "description": "```sh g++ -o WeWorkFinanceSdk WeWorkFinanceSdk.cpp -ldl ```",
+  "main": "rsaDecrypt.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-rsa": "^1.1.1"
+  }
+}

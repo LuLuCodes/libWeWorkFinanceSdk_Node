@@ -7,6 +7,9 @@
 #include <iostream>
 #include <stdexcept>
 #include <cstdio>
+#include <limits.h>
+#include <unistd.h>
+#include <libgen.h>
 
 using std::string;
 
@@ -34,7 +37,18 @@ int main(int argc, char* argv[])
         return -1;
     }
 
-    void* so_handle = dlopen("./libWeWorkFinanceSdk_C.so", RTLD_LAZY);
+    char exePath[PATH_MAX];
+    ssize_t len = readlink("/proc/self/exe", exePath, sizeof(exePath)-1);
+    if (len == -1) {
+      printf("无法获取可执行文件路径\n");
+      return -1;
+    }
+
+    exePath[len] = '\0';
+    char* dir = dirname(exePath);
+    char libPath[PATH_MAX];
+    snprintf(libPath, sizeof(libPath), "%s/libWeWorkFinanceSdk_C.so", dir);
+    void* so_handle = dlopen(libPath, RTLD_LAZY);
     if (!so_handle) {
         printf("load sdk so fail:%s\n", dlerror());
         return -1;

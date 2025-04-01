@@ -136,7 +136,7 @@ export default class libWeWorkFinanceSdk {
           '',
           `${timeout || 360000}`,
         ],
-        { encoding: 'buffer' }
+        { encoding: 'buffer', maxBuffer: 1024 * 1024 * 500 }
       );
 
       if (stderr && stderr.length > 0) {
